@@ -1,0 +1,144 @@
+<html>
+<head>
+<title>Tip Calculator</title>
+<style>
+body {
+    background-image: url("http://eskipaper.com/images/dessert-background-1.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+#outline {
+      position: relative;
+      left: 3px;
+      top: 6px;
+      border: 2px solid #ee5697;
+      border-style: dotted;
+      border-radius: 18px;
+      padding: 0px 15px 15px 15px;
+      width: 700px;
+      height: 430px;
+      background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmS-Nv8nU5qqNJ-6t8U-OQleEkzZFKTm3U3f7d5JFqBD2779lrDw");
+}
+
+#donuts {
+  position: relative;
+  left: 10px;
+}
+
+#img {
+  position: relative;
+  left: 6px;
+}
+
+p {
+  font-size: 18px;
+  font-family: cursive;
+  color: #f4058a;
+}
+
+h2 {
+  font-family: cursive;
+  color: #f4058a;
+  line-height: 0px;
+}
+
+#statement {
+    line-height: 0px;
+    font-weight: bold;
+}
+
+#comment {
+  line-height: 0px;
+}
+
+#signup {
+  font-family: cursive;
+  font-size: 14px;
+  color: #f4058a;
+}
+
+#address {
+  font-family: Arial;
+  font-size: 14px;
+  color: #485f9a;
+  position: relative;
+  top: 0px;
+  left: 50px;
+}
+
+form {
+  font-size: 16px;
+  font-family: cursive;
+  color: #f4058a;
+  line-height: 0px;
+}
+</style>
+</head>
+<body>
+<img id="img" src="https://thumbs.dreamstime.com/b/cartoon-ice-cream-sundae-29242369.jpg" width="100"></a>
+<img id="logo" src="http://i65.tinypic.com/2hwi5vb.png"></a>
+<img id="donuts" src="https://i.pinimg.com/236x/bd/7e/2c/bd7e2c879d4c4532dbaeb5694dfb8486--vector-illustrations-donuts.jpg" width="150"></a>
+<br />
+<div id= "outline">
+<h2>Receipt:</h2>
+<p id="date"></p>
+
+<p id="statement"></p> <!-- Final statements will appear here-->
+
+<center>
+<img src="http://i64.tinypic.com/51pzde.gif" width="335"></a>
+<br />
+<p id="comment">Thank you! Come again :)</p></center>
+
+<p id="signup">Sign up for exclusive email deals and offers from Nisha's Bakery®:</p>
+<form name="addressform"> <!--Creating an email submission form -->
+  Email: <input name="email"><br />
+
+<input type="button" value="Subscribe" onClick= "window.alert('A confirmation email will be sent to: '+ document.addressform.email.value + ' ');">
+
+</form>
+
+</div>
+
+<p id="address">780 Lexington Avenue <br />
+New York, New York 10065 <br />
+(718) 555-5555</p>
+
+<script type="text/javascript">
+
+x = prompt("How was the service? Suggested gratituity: 10%, 15%, or 20%"); //box will pop up on screen asking this question
+y = prompt("What was the total?");
+
+function calcTip(y) {
+  if (x < 10) {
+    alert("Run away and don't look back!"); //alert box for any input less than 10
+    return (y*(x/100));
+  }
+  if (x == 10) {
+    return (y*0.1);
+  }
+  if (x == 15) {
+    return (y*0.15);
+  }
+  if (x == 20) {
+    return (y*0.20);
+  } else { //for any input besides 10, 15, 20
+    return (y*(x/100));
+  }
+}
+
+calcTip(y);
+var total = (1*y )+ (1*calcTip(y)); /*this calculation including the multiplication, allows the value of the bill
+total and tip to be added and displayed as a numerical value instead of a concatenation of two numbers that are
+read as strings */
+
+var billTotal = "The total amount you should pay is $" + total + ".";
+
+document.getElementById('statement').innerHTML = billTotal;
+document.getElementById("date").innerHTML = Date();
+
+</script>
+</body>
+</html>
